@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Rois\Dice;
 
 class DiceHand {
@@ -14,13 +17,13 @@ class DiceHand {
      * Constructor to initialize DeceHand with a number of Dices.
      * @param int $dices - Number of dices.
      */
-    public function __construct(int $dices = 5) {
+    public function __construct(int $dices) {
         $this->dices = [];
         $this->values = [];
 
         for ($i = 0; $i < $dices; $i++) {
-            $this->dices[$i] = new Dice();
-            $this->values[$i] = null;
+            $this->dices[] = new GraphicalDice();
+            $this->values[] = null;
         }
     }
 
@@ -61,6 +64,10 @@ class DiceHand {
     public function average() :float
     {
         return array_sum($this->values) / count($this->values);
+    }
+
+    public function getDices() {
+        return $this->dices;
     }
 
 }

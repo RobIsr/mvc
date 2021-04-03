@@ -5,12 +5,20 @@ declare(strict_types=1);
 namespace Rois\Dice;
 
 class Dice {
-    const DICE_FACES = 6;
-    private $rollResult = 0;
+    private $sides = 6;
+    protected $rollResult = 0;
+
+    /**
+     * Constructor to initialize the dice with all 6 sides.
+     */
+    public function __construct(int $diceSides)
+    {
+       $this->sides = $diceSides;
+    }
 
     public function roll(): int
     {
-        $this->rollResult = rand(1, self::DICE_FACES);
+        $this->rollResult = rand(1, $this->sides);
 
         return $this->rollResult;
     }

@@ -57,12 +57,41 @@ class Router
             sendResponse($body);
             return;
         } else if ($method === "GET" && $path === "/dice") {
+            $callable = new \Rois\Dice\Game();
+            //$callable->initGame(0, $_SESSION["dices"] ?? null);
+            $_SESSION["callable"] = serialize($callable);
             $data = [
                 "header" => "Dice Game",
-                "message" => "Play dice game!",
+                "message" => "Select number of dices",
             ];
             $body = renderView("layout/dice.php", $data);
             sendResponse($body);
+            return;
+        } else if ($method === "GET" && $path === "/dice/play") {
+            $data = [
+                "header" => "Dice Game",
+                "message" => "Roll dices to get as close to 21 as possible but not above...",
+            ];
+            $body = renderView("layout/dice_play.php", $data);
+            sendResponse($body);
+            return;
+        } else if ($method === "POST" && $path === "/dice") {
+            $callable = unserialize($_SESSION["callable"]);
+            if (isset($_POST["roll"])) {
+                $callable->newRoll();
+                redirectTo(url("/dice/play"));
+            } else if(isset($_POST["stop"])) {
+                $callable->stop($callable->getDices());
+                redirectTo(url("/dice/play"));
+            }   elseif (isset($_POST["dices"])) {
+                $callable->playGame($_POST["dices"]);
+                redirectTo(url("/dice/play"));
+            }   elseif (isset($_POST["new_game"])) {
+                $callable->playGame($_POST["dices"]);
+                session_destroy();
+                redirectTo(url("/dice"));
+            } 
+            $_SESSION["callable"] = serialize($callable);
             return;
         }
 
