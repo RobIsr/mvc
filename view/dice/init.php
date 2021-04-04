@@ -1,6 +1,8 @@
 <?php
-    use function Mos\Functions\url;
-    ?>
+
+use function Mos\Functions\url;
+
+?>
     <form method="POST" action="<?= url("/dice") ?>">
     <label for="dices">Select number of dices</label>
     <select name="dices" id="dices">

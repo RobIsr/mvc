@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace Rois\Dice;
+
 use function Mos\Functions\{
     renderView,
     sendResponse,
@@ -10,62 +11,88 @@ use function Mos\Functions\{
     url
 };
 
-class Game {
+use Rois\Dice\DiceHand as diceHand;
+
+class Game
+{
 
     private $diceHand;
-    private $sum = 0;
-    private $result = null;
+    private int $sum = 0;
+    private ?string $result = null;
 
+    /**
+     * Generates a new dicehand and makes the first roll.
+     * @return - void
+     */
     public function playGame($dices): void
     {
-        $data = [
-            "header" => "Dice Game",
-            "message" => "Try to get the the sum as close to 21 as possible, but not above...",
-        ];
-
-        $this->diceHand = new \Rois\Dice\DiceHand(intval($dices));
+        $this->diceHand = new diceHand(intval($dices));
         $this->diceHand->roll();
         $this->sum += $this->diceHand->sum();
     }
 
-    public function newRoll() {
-        $data = [
-            "header" => "Dice Game",
-            "message" => "Try to get the the sum as close to 21 as possible, but not above...",
-        ];
+    /**
+     * Makes a new roll of the dices.
+     * @return - void
+     */
+    public function newRoll(): void
+    {
         $this->diceHand->roll();
         $this->sum += $this->diceHand->sum();
     }
 
-    public function stop($dices) {
-        $computerHand = new \Rois\Dice\DiceHand(intval($dices));
+    /**
+     * Make computer dice rolls and generate a result.
+     * @return - void
+     */
+    public function stop($dices): void
+    {
+        $computerHand = new diceHand($dices);
         $computerSum = 0;
-        while($computerSum < 15) {
+        while ($computerSum < 15) {
             $computerHand->roll();
             $computerSum += $computerHand->sum();
         }
         if ($computerSum >= $this->sum) {
             $this->result = "You lost! Computers score was: " . $computerSum;
-        } else {
-            $this->result = "You win! Computers score was: " . $computerSum;
         }
-
+        $this->result = "You win! Computers score was: " . $computerSum;
     }
 
-    public function getDices() {
+    /**
+     * Getter to retrieve the dices.
+     * @return array - The dice objects after latest roll.
+     */
+    public function getDices(): array
+    {
         return $this->diceHand->getDices();
     }
 
-    public function getValues() {
+    /**
+     * Gets the values of the dices.
+     * Getter to retrieve dice values.
+     * @return array - The dice values from latest roll.
+     */
+    public function getValues(): array
+    {
         return $this->diceHand->values();
     }
 
-    public function getSum() {
+    /**
+     * Geter to retrieve the sum of the dices from latest roll.
+     * @return int - The sum of the latest dice roll.
+     */
+    public function getSum()
+    {
         return $this->sum;
     }
 
-    public function getResult() {
+    /**
+     * Getter to retrieve the generated result.
+     * @return result - The generated game result.
+     */
+    public function getResult()
+    {
         return $this->result;
     }
-
 }

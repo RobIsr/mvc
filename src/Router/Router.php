@@ -13,6 +13,8 @@ use function Mos\Functions\{
     url
 };
 
+use Rois\Dice\Game as Game;
+
 /**
  * Class Router.
  */
@@ -57,8 +59,8 @@ class Router
             sendResponse($body);
             return;
         } else if ($method === "GET" && $path === "/dice") {
-            $callable = new \Rois\Dice\Game();
-            //$callable->initGame(0, $_SESSION["dices"] ?? null);
+            //Route that initiates a new game object and renders the inital view.
+            $callable = new Game();
             $_SESSION["callable"] = serialize($callable);
             $data = [
                 "header" => "Dice Game",
@@ -68,6 +70,7 @@ class Router
             sendResponse($body);
             return;
         } else if ($method === "GET" && $path === "/dice/play") {
+            //Route that renders the game view.
             $data = [
                 "header" => "Dice Game",
                 "message" => "Roll dices to get as close to 21 as possible but not above...",
@@ -76,21 +79,23 @@ class Router
             sendResponse($body);
             return;
         } else if ($method === "POST" && $path === "/dice") {
+            //Load game object from session and call its methods as appropriate.
             $callable = unserialize($_SESSION["callable"]);
             if (isset($_POST["roll"])) {
                 $callable->newRoll();
                 redirectTo(url("/dice/play"));
-            } else if(isset($_POST["stop"])) {
-                $callable->stop($callable->getDices());
+            } elseif (isset($_POST["stop"])) {
+                $callable->stop(count($callable->getDices()));
                 redirectTo(url("/dice/play"));
-            }   elseif (isset($_POST["dices"])) {
+            } elseif (isset($_POST["dices"])) {
                 $callable->playGame($_POST["dices"]);
                 redirectTo(url("/dice/play"));
-            }   elseif (isset($_POST["new_game"])) {
+            } elseif (isset($_POST["new_game"])) {
                 $callable->playGame($_POST["dices"]);
                 session_destroy();
                 redirectTo(url("/dice"));
-            } 
+            }
+            //Save the updated game object to session.
             $_SESSION["callable"] = serialize($callable);
             return;
         }

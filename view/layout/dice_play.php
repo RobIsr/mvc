@@ -13,14 +13,11 @@ $message = $message ?? null;
 ?><h1><?= $header ?></h1>
 <p><?= $message ?></p>
 
-
-
 <?php
-    require __DIR__ . "/../dice/game.php";
-    if (is_null($gameObj->getResult())) {
-        require __DIR__ . "/../dice/roll_form.php";
-    } else {
-        require __DIR__ . "/../dice/reset_form.php";
-    }
-    
+require __DIR__ . "/../dice/game.php";
+if (is_null($gameObj->getResult())) {
+    require __DIR__ . "/../dice/roll_form.php";
+} else {
+    require __DIR__ . "/../dice/reset_form.php";
+}
 ?>

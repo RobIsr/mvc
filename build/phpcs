@@ -1,0 +1,30 @@
+
+FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/view/layout/submit.php
+------------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+------------------------------------------------------------------------------
+ 3 | ERROR | [x] Expected 1 newline at end of file; 0 found
+------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+------------------------------------------------------------------------------
+
+
+FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/Game.php
+--------------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+--------------------------------------------------------------------------------
+ 14 | ERROR | The class-based use imports must follow the namespace declaration
+    |       | in the file header
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Router/Router.php
+--------------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+--------------------------------------------------------------------------------
+ 16 | ERROR | The class-based use imports must follow the namespace declaration
+    |       | in the file header
+--------------------------------------------------------------------------------
+
+Time: 130ms; Memory: 6MB
+

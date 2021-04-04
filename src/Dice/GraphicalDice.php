@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rois\Dice;
 
-class GraphicalDice extends Dice 
+class GraphicalDice extends Dice
 {
     /**
      * @var int - SIDES, the number of sides of the dice.
@@ -21,7 +21,7 @@ class GraphicalDice extends Dice
     /**
      * Function to pront a graphical representation of the dice.
      */
-    public function graphic() :string
+    public function graphic(): string
     {
         return "dice-" . $this->rollResult;
     }
