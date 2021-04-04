@@ -91,8 +91,11 @@ namespace Mos\Router {
                     redirectTo(url("/dice/play"));
                 } elseif (isset($_POST["new_game"])) {
                     $callable->playGame($_POST["dices"]);
-                    session_destroy();
+                    unset($_SESSION["dice"]);
+                    unset($_SESSION["callable"]);
                     redirectTo(url("/dice"));
+                } elseif (isset($_POST["reset_count"])) {
+                    $callable->resetRounds();
                 }
                 //Save the updated game object to session.
                 $_SESSION["callable"] = serialize($callable);

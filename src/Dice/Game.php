@@ -40,8 +40,10 @@ class Game
         $this->sum += $this->diceHand->sum();
         if ($this->sum > 21) {
             $this->result = "You lost!";
+            $this->saveRound("computer");
         } elseif ($this->sum === 21) {
             $this->result = "You win!";
+            $this->saveRound("player");
         }
         $_SESSION["callable"] = $_SESSION["callable"];
         redirectTo(url("/dice/play"));
@@ -61,8 +63,10 @@ class Game
         }
         if ($computerSum >= $this->sum) {
             $this->result = "You lost! Computers score was: " . $computerSum;
+            $this->saveRound("computer");
         } else {
             $this->result = "You win! Computers score was: " . $computerSum;
+            $this->saveRound("player");
         }
         redirectTo(url("/dice/play"));
     }
@@ -87,10 +91,10 @@ class Game
     }
 
     /**
-     * Geter to retrieve the sum of the dices from latest roll.
+     * Getter to retrieve the sum of the dices from latest roll.
      * @return int The sum of the latest dice roll.
      */
-    public function getSum()
+    public function getSum(): int
     {
         return $this->sum;
     }
@@ -102,5 +106,33 @@ class Game
     public function getResult()
     {
         return $this->result;
+    }
+
+    /**
+     * Resets the round result counter.
+     * @return void
+     */
+    public function resetRounds(): void
+    {
+        if (isset($_SESSION["player"])) {
+            unset($_SESSION["player"]);
+        } 
+        if (isset($_SESSION["computer"])) {
+            unset($_SESSION["computer"]);
+        }
+        redirectTo(url("/dice/play"));
+    }
+
+    /**
+     * Saves the result of the played round to the session.
+     * @return void
+     */
+    private function saveRound(string $winner): void
+    {
+        if (isset($_SESSION[$winner])) {
+            $_SESSION[$winner] = $_SESSION[$winner] + 1;
+        } else {
+            $_SESSION[$winner] = 1;
+        }
     }
 }

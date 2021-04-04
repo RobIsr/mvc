@@ -16,6 +16,20 @@ footer {
     text-align: center;
 }
 
+.round-count {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.round-count h3 {
+    padding-right: 1em;
+}
+
+.round-count p {
+    padding-right: 1em;
+}
+
 /**
  * CSS sprite for a dice with six faces.
  */
