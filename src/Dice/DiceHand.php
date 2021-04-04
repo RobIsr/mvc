@@ -10,12 +10,12 @@ class DiceHand
      * @var dices - Array containing dices.
      * @var values - Array containing dice roll values.
      */
-    private int $array;
+    private array $dices;
     private array $values;
 
     /**
      * Constructor to initialize DeceHand with a number of Dices.
-     * @param int $dices - Number of dices.
+     * @var int $numDices - Number of dices.
      */
     public function __construct(int $numDices)
     {

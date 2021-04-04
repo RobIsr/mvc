@@ -11,8 +11,6 @@ use function Mos\Functions\{
     url
 };
 
-use Rois\Dice\DiceHand as diceHand;
-
 class Game
 {
 
@@ -22,32 +20,40 @@ class Game
 
     /**
      * Generates a new dicehand and makes the first roll.
-     * @return - void
+     * @return void
      */
     public function playGame($dices): void
     {
-        $this->diceHand = new diceHand(intval($dices));
+        $this->diceHand = new DiceHand(intval($dices));
         $this->diceHand->roll();
         $this->sum += $this->diceHand->sum();
+        $_SESSION["callable"] = $_SESSION["callable"];
     }
 
     /**
      * Makes a new roll of the dices.
-     * @return - void
+     * @return void
      */
     public function newRoll(): void
     {
         $this->diceHand->roll();
         $this->sum += $this->diceHand->sum();
+        if ($this->sum > 21) {
+            $this->result = "You lost!";
+        } elseif ($this->sum === 21) {
+            $this->result = "You win!";
+        }
+        $_SESSION["callable"] = $_SESSION["callable"];
+        redirectTo(url("/dice/play"));
     }
 
     /**
      * Make computer dice rolls and generate a result.
-     * @return - void
+     * @return void
      */
     public function stop($dices): void
     {
-        $computerHand = new diceHand($dices);
+        $computerHand = new DiceHand($dices);
         $computerSum = 0;
         while ($computerSum < 15) {
             $computerHand->roll();
@@ -55,13 +61,15 @@ class Game
         }
         if ($computerSum >= $this->sum) {
             $this->result = "You lost! Computers score was: " . $computerSum;
+        } else {
+            $this->result = "You win! Computers score was: " . $computerSum;
         }
-        $this->result = "You win! Computers score was: " . $computerSum;
+        redirectTo(url("/dice/play"));
     }
 
     /**
      * Getter to retrieve the dices.
-     * @return array - The dice objects after latest roll.
+     * @return array The dice objects after latest roll.
      */
     public function getDices(): array
     {
@@ -71,7 +79,7 @@ class Game
     /**
      * Gets the values of the dices.
      * Getter to retrieve dice values.
-     * @return array - The dice values from latest roll.
+     * @return array The dice values from latest roll.
      */
     public function getValues(): array
     {
@@ -80,7 +88,7 @@ class Game
 
     /**
      * Geter to retrieve the sum of the dices from latest roll.
-     * @return int - The sum of the latest dice roll.
+     * @return int The sum of the latest dice roll.
      */
     public function getSum()
     {
@@ -89,7 +97,7 @@ class Game
 
     /**
      * Getter to retrieve the generated result.
-     * @return result - The generated game result.
+     * @return string The generated game result.
      */
     public function getResult()
     {

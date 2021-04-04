@@ -1,1 +1,4 @@
-/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Router/Router.php:23	The method dispatch() has a Cyclomatic Complexity of 23. The configured cyclomatic complexity threshold is 10.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Router/Router.php:24	The method dispatch() has a Cyclomatic Complexity of 23. The configured cyclomatic complexity threshold is 10.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/Dice.php	-	Unexpected token: int, line: 9, col: 13, file: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/Dice.php.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/DiceHand.php	-	Unexpected token: array, line: 13, col: 13, file: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/DiceHand.php.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/Game.php	-	Unexpected token: int, line: 18, col: 13, file: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/Game.php.

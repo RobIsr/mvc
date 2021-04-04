@@ -19,7 +19,7 @@ class Dice
 
     /**
      * Roll this dice to retrieve its value.
-     * @return int - The rsulting value from roll of this dice.
+     * @return int The rsulting value from roll of this dice.
      */
     public function roll(): int
     {
@@ -30,7 +30,7 @@ class Dice
 
     /**
      * Retrieves the result from the dice roll.
-     * @return int - Retrieves the result from the dice roll.
+     * @return int Retrieves the result from the dice roll.
      */
     public function getLastRoll(): int
     {
