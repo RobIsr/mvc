@@ -7,8 +7,8 @@ namespace Rois\Dice;
 class DiceHand
 {
     /**
-     * @var dices - Array containing dices.
-     * @var values - Array containing dice roll values.
+     * @var dices Array containing dices.
+     * @var values Array containing dice roll values.
      */
     private array $dices;
     private array $values;

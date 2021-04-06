@@ -64,11 +64,14 @@ class Game
         if ($computerSum >= $this->sum) {
             $this->result = "You lost! Computers score was: " . $computerSum;
             $this->saveRound("computer");
-        } else {
-            $this->result = "You win! Computers score was: " . $computerSum;
-            $this->saveRound("player");
+            redirectTo(url("/dice/play"));
+            return;
         }
+
+        $this->result = "You win! Computers score was: " . $computerSum;
+        $this->saveRound("player");
         redirectTo(url("/dice/play"));
+        return;
     }
 
     /**
@@ -116,7 +119,7 @@ class Game
     {
         if (isset($_SESSION["player"])) {
             unset($_SESSION["player"]);
-        } 
+        }
         if (isset($_SESSION["computer"])) {
             unset($_SESSION["computer"]);
         }
@@ -131,8 +134,9 @@ class Game
     {
         if (isset($_SESSION[$winner])) {
             $_SESSION[$winner] = $_SESSION[$winner] + 1;
-        } else {
-            $_SESSION[$winner] = 1;
+            return;
         }
+        $_SESSION[$winner] = 1;
+        return;
     }
 }

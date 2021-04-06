@@ -7,7 +7,6 @@ namespace Mos\Router {
     use Rois\Dice;
 
     use function Mos\Functions\{
-
         destroySession,
         redirectTo,
         renderView,
@@ -91,7 +90,6 @@ namespace Mos\Router {
                     redirectTo(url("/dice/play"));
                 } elseif (isset($_POST["new_game"])) {
                     $callable->playGame($_POST["dices"]);
-                    unset($_SESSION["dice"]);
                     unset($_SESSION["callable"]);
                     redirectTo(url("/dice"));
                 } elseif (isset($_POST["reset_count"])) {
