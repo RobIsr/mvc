@@ -28,6 +28,12 @@ $router->addGroup("/dice", function (RouteCollector $router) {
     $router->addRoute("POST", "/controls", ["\Rois\Controller\Dice", "controls"]);
 });
 
+$router->addGroup("/yatzy", function (RouteCollector $router) {
+    $router->addRoute(["GET", "POST"], "", "\Rois\Controller\Yatzy");
+    $router->addRoute("POST", "/controls", ["\Rois\Controller\Yatzy", "controls"]);
+    $router->addRoute(["GET"], "/update", ["\Rois\Controller\Yatzy", "updateGameView"]);
+});
+
 $router->addGroup("/session", function (RouteCollector $router) {
     $router->addRoute("GET", "", ["\Mos\Controller\Session", "index"]);
     $router->addRoute("GET", "/destroy", ["\Mos\Controller\Session", "destroy"]);
