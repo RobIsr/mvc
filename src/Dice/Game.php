@@ -27,7 +27,7 @@ class Game
         $this->diceHand = new DiceHand(intval($dices));
         $this->diceHand->roll();
         $this->sum += $this->diceHand->sum();
-        $_SESSION["callable"] = $_SESSION["callable"];
+        $_SESSION["callable"] = serialize($this);
     }
 
     /**
@@ -45,7 +45,7 @@ class Game
             $this->result = "You win!";
             $this->saveRound("player");
         }
-        $_SESSION["callable"] = $_SESSION["callable"];
+        $_SESSION["callable"] = serialize($this);
         redirectTo(url("/dice/play"));
     }
 
@@ -57,21 +57,24 @@ class Game
     {
         $computerHand = new DiceHand($dices);
         $computerSum = 0;
+
         while ($computerSum < 15) {
             $computerHand->roll();
             $computerSum += $computerHand->sum();
         }
-        if ($computerSum >= $this->sum) {
+
+        if ($computerSum >= $this->sum && $computerSum <= 21) {
             $this->result = "You lost! Computers score was: " . $computerSum;
             $this->saveRound("computer");
             redirectTo(url("/dice/play"));
+            $_SESSION["callable"] = serialize($this);
             return;
         }
 
         $this->result = "You win! Computers score was: " . $computerSum;
         $this->saveRound("player");
+        $_SESSION["callable"] = serialize($this);
         redirectTo(url("/dice/play"));
-        return;
     }
 
     /**
@@ -123,7 +126,6 @@ class Game
         if (isset($_SESSION["computer"])) {
             unset($_SESSION["computer"]);
         }
-        redirectTo(url("/dice/play"));
     }
 
     /**

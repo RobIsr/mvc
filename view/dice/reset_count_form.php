@@ -4,6 +4,6 @@ use function Mos\Functions\url;
 
 ?>
 
-<form method="POST" action="<?= url("/dice") ?>">
-    <input type="submit" value="Reset Count" name="reset_count">
+<form method="POST" action="<?= url("/dice/controls") ?>">
+    <input type="submit" value="Reset Count" name="reset">
 </form>
