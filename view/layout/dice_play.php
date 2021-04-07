@@ -7,9 +7,9 @@
 declare(strict_types=1);
 
 require __DIR__ . "/../header.php";
+$gameObj = unserialize($_SESSION["callable"]) ?? null;
 $header = $header ?? null;
 $message = $message ?? null;
-$gameObj = $gameObj ?? null;
 ?><h1><?= $header ?></h1>
 <p><?= $message ?></p>
 

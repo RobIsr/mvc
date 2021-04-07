@@ -15,6 +15,7 @@ class Game
 {
 
     private $diceHand;
+    private $dices;
     private int $sum = 0;
     private ?string $result = null;
 
@@ -24,7 +25,8 @@ class Game
      */
     public function playGame($dices): void
     {
-        $this->diceHand = new DiceHand(intval($dices));
+        $this->$dices = $dices;
+        $this->diceHand = new DiceHand($dices);
         $this->diceHand->roll();
         $this->sum += $this->diceHand->sum();
         $_SESSION["callable"] = serialize($this);
@@ -53,9 +55,9 @@ class Game
      * Make computer dice rolls and generate a result.
      * @return void
      */
-    public function stop($dices): void
+    public function stop(): void
     {
-        $computerHand = new DiceHand($dices);
+        $computerHand = new DiceHand(count($this->getDices()));
         $computerSum = 0;
 
         while ($computerSum < 15) {

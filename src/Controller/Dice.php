@@ -46,19 +46,11 @@ class Dice
 
         $gameObj = unserialize($_SESSION["callable"]);
 
-        $gameObj->playGame(2);
+        $gameObj->playGame(intval($_POST["dices"]));
 
-        $data = [
-            "header" => "Dice page",
-            "message" => "Hello, this is the dice page.",
-            "gameObj" => $gameObj
-        ];
-
-        $body = renderView("layout/dice_play.php", $data);
-
-        return $psr17Factory
-            ->createResponse(200)
-            ->withBody($psr17Factory->createStream($body));
+        return (new Response())
+            ->withStatus(301)
+            ->withHeader("Location", url("/dice/update"));
     }
 
     public function controls(): ResponseInterface
@@ -70,15 +62,25 @@ class Dice
         if (isset($_POST["roll"])) {
             $gameObj->newRoll();
         } elseif (isset($_POST["stop"])) {
-            $gameObj->stop(2);
+            $gameObj->stop();
         } elseif (isset($_POST["reset"])) {
             $gameObj->resetRounds();
         }
 
+        return (new Response())
+            ->withStatus(301)
+            ->withHeader("Location", url("/dice/update"));
+    }
+
+    public function updateGameView() {
+        $psr17Factory = new Psr17Factory();
+
+        $gameObj = unserialize($_SESSION["callable"]);
+
         $data = [
             "header" => "Dice page",
             "message" => "Hello, this is the dice page.",
-            "gameObj" => $gameObj,
+            "gameObj" => $gameObj
         ];
 
         $body = renderView("layout/dice_play.php", $data);

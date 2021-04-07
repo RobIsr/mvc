@@ -22,9 +22,9 @@ $router->addRoute("GET", "/debug", "\Mos\Controller\Debug");
 $router->addRoute("GET", "/twig", "\Mos\Controller\TwigView");
 
 $router->addGroup("/dice", function (RouteCollector $router) {
-    $router->addRoute("GET", "", ["\Rois\Controller\Dice", "index"]);
-    $router->addRoute("POST", "", ["\Rois\Controller\Dice", "index"]);
-    $router->addRoute("POST", "/play", ["\Rois\Controller\Dice", "play"]);
+    $router->addRoute(["GET", "POST"], "", ["\Rois\Controller\Dice", "index"]);
+    $router->addRoute(["GET", "POST"], "/play", ["\Rois\Controller\Dice", "play"]);
+    $router->addRoute(["GET"], "/update", ["\Rois\Controller\Dice", "updateGameView"]);
     $router->addRoute("POST", "/controls", ["\Rois\Controller\Dice", "controls"]);
 });
 
