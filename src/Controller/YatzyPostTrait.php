@@ -50,6 +50,19 @@ trait YatzyPostTrait
     {
         $psr17Factory = new Psr17Factory();
 
+        $addRemove = [
+            "add-0" => 0,
+            "add-1" => 1,
+            "add-2" => 2,
+            "add-3" => 3,
+            "add-4" => 4,
+            "rem-0" => 0,
+            "rem-1" => 1,
+            "rem-2" => 2,
+            "rem-3" => 3,
+            "rem-4" => 4
+        ];
+
         $gameObj = unserialize($_SESSION["callable"]);
         if (isset($_POST["start"])) {
             $_SESSION["callable"] = serialize($gameObj);
@@ -65,27 +78,22 @@ trait YatzyPostTrait
             $gameObj = new YatzyGame();
             $gameObj->initGame();
             $gameObj->getCurrentRound()->roll();
-        } elseif (isset($_POST["add-0"])) {
-            $gameObj->getCurrentRound()->storeDices(0);
-        } elseif (isset($_POST["add-1"])) {
-            $gameObj->getCurrentRound()->storeDices(1);
-        } elseif (isset($_POST["add-2"])) {
-            $gameObj->getCurrentRound()->storeDices(2);
-        } elseif (isset($_POST["add-3"])) {
-            $gameObj->getCurrentRound()->storeDices(3);
-        } elseif (isset($_POST["add-4"])) {
-            $gameObj->getCurrentRound()->storeDices(4);
-        } elseif (isset($_POST["rem-0"])) {
-            $gameObj->getCurrentRound()->removeDices(0);
-        } elseif (isset($_POST["rem-1"])) {
-            $gameObj->getCurrentRound()->removeDices(1);
-        } elseif (isset($_POST["rem-2"])) {
-            $gameObj->getCurrentRound()->removeDices(2);
-        } elseif (isset($_POST["rem-3"])) {
-            $gameObj->getCurrentRound()->removeDices(3);
-        } elseif (isset($_POST["rem-4"])) {
-            $gameObj->getCurrentRound()->removeDices(4);
+        } 
+        
+        foreach($addRemove as $index => $value) {
+            if (isset($_POST[$index])) {
+                $func = explode("-", $index);
+                if ($func[0] === "add") {
+                    $gameObj->getCurrentRound()->storeDices($value);
+                } else {
+                    $gameObj->getCurrentRound()->removeDices($value);
+                }
+                
+                $_SESSION["callable"] = serialize($gameObj);
+                return $this->redirect(url("/yatzy/update"));
+            }
         }
+
         $_SESSION["callable"] = serialize($gameObj);
         return $this->redirect(url("/yatzy/update"));
     }

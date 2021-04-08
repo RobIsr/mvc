@@ -28,7 +28,7 @@ $sum = $sum;
 
 <?php require __DIR__ . "/../../yatzy/result_table.php"; ?>
 <?php if (!$endGame) : ?>
-    <h2>Saved Dices</h2>
+    <h2>Saved Dices (Click to remove)</h2>
 
     <!-- Display dices saved by the user -->
     <div class="dices">

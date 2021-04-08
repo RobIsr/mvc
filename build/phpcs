@@ -1,19 +1,18 @@
 
 FILE: ...obertisraelsson/dbwebb-kurser/mvc/me/game/view/layout/yatzy/yatzy_play.php
 --------------------------------------------------------------------------------
-FOUND 3 ERRORS AFFECTING 3 LINES
+FOUND 2 ERRORS AFFECTING 2 LINES
 --------------------------------------------------------------------------------
- 48 | ERROR | [x] Expected 1 space(s) after IF keyword; 0 found
- 54 | ERROR | [x] Expected 1 space(s) after IF keyword; 0 found
- 61 | ERROR | [x] Expected 1 space(s) after IF keyword; 0 found
+ 62 | ERROR | [x] Expected 1 space(s) after IF keyword; 0 found
+ 69 | ERROR | [x] Expected 1 space(s) after IF keyword; 0 found
 --------------------------------------------------------------------------------
-PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 --------------------------------------------------------------------------------
 
 
 FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Yatzy/Round.php
 --------------------------------------------------------------------------------
-FOUND 8 ERRORS AFFECTING 8 LINES
+FOUND 10 ERRORS AFFECTING 10 LINES
 --------------------------------------------------------------------------------
  16 | ERROR | [x] TRUE, FALSE and NULL must be lowercase; expected "false" but
     |       |     found "FALSE"
@@ -27,9 +26,12 @@ FOUND 8 ERRORS AFFECTING 8 LINES
  47 | ERROR | [x] Whitespace found at end of line
  48 | ERROR | [x] TRUE, FALSE and NULL must be lowercase; expected "true" but
     |       |     found "TRUE"
- 70 | ERROR | [x] Expected 1 newline at end of file; 0 found
+ 55 | ERROR | [x] TRUE, FALSE and NULL must be lowercase; expected "true" but
+    |       |     found "TRUE"
+ 76 | ERROR | [x] Expected 1 space(s) after FOREACH keyword; 0 found
+ 83 | ERROR | [x] Expected 1 newline at end of file; 0 found
 --------------------------------------------------------------------------------
-PHPCBF CAN FIX THE 8 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 10 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 --------------------------------------------------------------------------------
 
 
@@ -37,8 +39,8 @@ FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyGame.php
 -------------------------------------------------------------------------------
 FOUND 2 ERRORS AFFECTING 2 LINES
 -------------------------------------------------------------------------------
- 34 | ERROR | [x] Whitespace found at end of line
- 48 | ERROR | [x] Expected 1 newline at end of file; 0 found
+ 35 | ERROR | [x] Whitespace found at end of line
+ 64 | ERROR | [x] Expected 1 newline at end of file; 0 found
 -------------------------------------------------------------------------------
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 -------------------------------------------------------------------------------
@@ -61,11 +63,21 @@ FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/DiceHand.php
 -----------------------------------------------------------------------------
 FOUND 2 ERRORS AFFECTING 2 LINES
 -----------------------------------------------------------------------------
- 39 | ERROR | [x] Expected 1 space(s) after FOREACH keyword; 0 found
- 87 | ERROR | [x] Whitespace found at end of line
+ 38 | ERROR | [x] Expected 1 space(s) after FOREACH keyword; 0 found
+ 92 | ERROR | [x] Whitespace found at end of line
 -----------------------------------------------------------------------------
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 -----------------------------------------------------------------------------
+
+
+FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/Dice.php
+-------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+-------------------------------------------------------------------------
+ 23 | ERROR | [x] Opening brace should be on a new line
+-------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-------------------------------------------------------------------------
 
 
 FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/Dice.php
@@ -80,15 +92,28 @@ PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 
 FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/Yatzy.php
 --------------------------------------------------------------------------------
-FOUND 4 ERRORS AFFECTING 4 LINES
+FOUND 1 ERROR AFFECTING 1 LINE
+--------------------------------------------------------------------------------
+ 37 | ERROR | [x] Opening brace should be on a new line
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+
+FILE: ...bertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/YatzyPostTrait.php
+--------------------------------------------------------------------------------
+FOUND 7 ERRORS AFFECTING 7 LINES
 --------------------------------------------------------------------------------
   10 | ERROR | [x] Header blocks must not contain blank lines
   13 | ERROR | [x] Header blocks must be separated by a single blank line
-  86 | ERROR | [x] Opening brace should be on a new line
- 108 | ERROR | [x] Opening brace should be on a new line
+  81 | ERROR | [x] Whitespace found at end of line
+  82 | ERROR | [x] Whitespace found at end of line
+  83 | ERROR | [x] Expected 1 space(s) after FOREACH keyword; 0 found
+  91 | ERROR | [x] Whitespace found at end of line
+ 100 | ERROR | [x] Expected 1 newline at end of file; 0 found
 --------------------------------------------------------------------------------
-PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 --------------------------------------------------------------------------------
 
-Time: 341ms; Memory: 6MB
+Time: 322ms; Memory: 6MB
 
