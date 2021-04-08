@@ -1,3 +1,19 @@
+ ------ ----------------------------------------------------------------- 
+  Line   src/Yatzy/Round.php                                              
+ ------ ----------------------------------------------------------------- 
+  68     Method Rois\Yatzy\Round::getRoundResult() should return int but  
+         return statement is missing.                                     
+ ------ ----------------------------------------------------------------- 
 
- [OK] No errors                                                                 
+ ------ ----------------------------------------------------------------- 
+  Line   src/Yatzy/YatzyGame.php                                          
+ ------ ----------------------------------------------------------------- 
+  25     Class Rois\Yatzy\Round constructor invoked with 2 parameters, 1  
+         required.                                                        
+  31     Class Rois\Yatzy\Round constructor invoked with 2 parameters, 1  
+         required.                                                        
+  36     Undefined variable: $roundCount                                  
+ ------ ----------------------------------------------------------------- 
+
+ [ERROR] Found 4 errors                                                         
 

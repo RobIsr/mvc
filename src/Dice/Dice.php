@@ -18,6 +18,13 @@ class Dice
     }
 
     /**
+     * Sets dice to be of specified value.
+     */
+    public function setDiceValue($val) {
+        $this->rollResult = $val;
+    }
+
+    /**
      * Roll this dice to retrieve its value.
      * @return int The rsulting value from roll of this dice.
      */

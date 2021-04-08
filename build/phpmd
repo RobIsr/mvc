@@ -1,1 +1,10 @@
 /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/Debug.php:24	Avoid using static access to class '\Nyholm\Psr7\Stream' in method '__invoke'.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/Dice.php:45	Avoid unused local variables such as '$psr17Factory'.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/Dice.php:58	Avoid unused local variables such as '$psr17Factory'.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/Yatzy.php:45	Avoid unused local variables such as '$psr17Factory'.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/Game.php:18	Avoid unused private fields such as '$dices'.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Yatzy/GameInteface.php:6	The class gameInterface is not named in CamelCase.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Yatzy/GameInteface.php:8	The method init_game is not named in camelCase.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Yatzy/Round.php:15	Avoid unused private fields such as '$roundResult'.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyGame.php:36	Avoid using undefined variables such as '$roundCount' which will lead to PHP notices.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyGame.php:36	Avoid unused local variables such as '$roundCount'.
