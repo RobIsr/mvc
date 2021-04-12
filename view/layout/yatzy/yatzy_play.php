@@ -22,6 +22,7 @@ $end = $end;
 $saved = $saved;
 $endGame = $endGame;
 $sum = $sum;
+$bonus = $bonus;
 
 ?><h1><?= $header ?></h1>
 <p><?= $message ?></p>

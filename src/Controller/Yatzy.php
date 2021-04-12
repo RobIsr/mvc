@@ -46,7 +46,8 @@ class Yatzy
             "end" => $gameObj->getCurrentRound()->checkEnd(),
             "saved" => $gameObj->getCurrentRound()->checkSaved(),
             "endGame" => $gameObj->checkEndGame(),
-            "sum" => $gameObj->getTotalScore()
+            "sum" => $gameObj->getTotalScore(),
+            "bonus" => $gameObj->getTotalScore() > 63 ? 50 : 0
         ];
 
         $body = renderView("layout/yatzy/yatzy_play.php", $data);

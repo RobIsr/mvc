@@ -12,6 +12,10 @@
     </tr>
 <?php endforeach;?>
 <tr>
+    <td>Bonus:</td>
+    <td><?= $bonus == 0 ? "-" : bonus; ?></td>
+</tr>
+<tr>
     <td>Total:</td>
     <td><?= $sum ?? "" ?></td>
 </tr>
