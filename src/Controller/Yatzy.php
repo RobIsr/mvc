@@ -34,7 +34,8 @@ class Yatzy
         return $this->response($body);
     }
 
-    public function updateGameView() {
+    public function updateGameView()
+    {
         $gameObj = unserialize($_SESSION["callable"]);
         $data = [
             "header" => "Dice page",

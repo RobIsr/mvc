@@ -8,9 +8,9 @@ use Nyholm\Psr7\{
     Factory\Psr17Factory,
     Response
 };
-
 use Rois\Yatzy\YatzyGame;
 use Psr\Http\Message\ResponseInterface;
+
 use function Mos\Functions\{
     destroySession,
     renderView,
@@ -48,8 +48,6 @@ trait YatzyPostTrait
 
     public function controls(): ResponseInterface
     {
-        $psr17Factory = new Psr17Factory();
-
         $addRemove = [
             "add-0" => 0,
             "add-1" => 1,
@@ -78,17 +76,18 @@ trait YatzyPostTrait
             $gameObj = new YatzyGame();
             $gameObj->initGame();
             $gameObj->getCurrentRound()->roll();
-        } 
-        
-        foreach($addRemove as $index => $value) {
+        }
+
+        foreach ($addRemove as $index => $value) {
             if (isset($_POST[$index])) {
                 $func = explode("-", $index);
                 if ($func[0] === "add") {
                     $gameObj->getCurrentRound()->storeDices($value);
-                } else {
-                    $gameObj->getCurrentRound()->removeDices($value);
+                    $_SESSION["callable"] = serialize($gameObj);
+                    return $this->redirect(url("/yatzy/update"));
                 }
-                
+
+                $gameObj->getCurrentRound()->removeDices($value);
                 $_SESSION["callable"] = serialize($gameObj);
                 return $this->redirect(url("/yatzy/update"));
             }

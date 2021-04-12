@@ -12,9 +12,8 @@ class Round
     private DiceHand $diceHand;
     private array $storedDices = [];
     private int $throwCount = 0;
-    private int $roundResult;
-    private bool $end = FALSE;
-    private bool $saved = FALSE;
+    private bool $end = false;
+    private bool $saved = false;
 
     /**
      * Constructor to initialize the round.
@@ -27,11 +26,11 @@ class Round
 
     public function roll(): void
     {
-        $this->saved = FALSE;
+        $this->saved = false;
         $this->diceHand->roll();
         $this->throwCount++;
-        if($this->throwCount === 3) {
-            $this->end = TRUE;
+        if ($this->throwCount === 3) {
+            $this->end = true;
         }
     }
 
@@ -44,15 +43,15 @@ class Round
     {
         array_push($this->storedDices, $this->diceHand->values()[$index]);
         $this->diceHand->spliceDice($index);
-        
-        $this->saved = TRUE;
+
+        $this->saved = true;
     }
 
     public function removeDices($index): void
     {
         $this->diceHand->addDice($this->storedDices[$index]);
         array_splice($this->storedDices, $index, 1);
-        $this->saved = TRUE;
+        $this->saved = true;
     }
 
     public function getStoredDices(): array
@@ -73,7 +72,7 @@ class Round
     public function getRoundResult($value): int
     {
         $sum = 0;
-        foreach($this->storedDices as $dice) {
+        foreach ($this->storedDices as $dice) {
             if ($dice === $value) {
                 $sum += $dice;
             }

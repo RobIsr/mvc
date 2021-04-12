@@ -35,7 +35,7 @@ class DiceHand
     public function roll(): void
     {
         $this->values = [];
-        foreach($this->dices as $dice) {
+        foreach ($this->dices as $dice) {
             $dice->roll();
             array_push($this->values, $dice->getLastRoll());
         }
@@ -89,7 +89,7 @@ class DiceHand
 
     /**
      * Getter for the dices held by this DiceHand
-     * @return array 
+     * @return array
      */
     public function getDices(): array
     {

@@ -42,8 +42,6 @@ class Dice
 
     public function play(): ResponseInterface
     {
-        $psr17Factory = new Psr17Factory();
-
         $gameObj = unserialize($_SESSION["callable"]);
 
         $gameObj->playGame(intval($_POST["dices"]));
@@ -55,8 +53,6 @@ class Dice
 
     public function controls(): ResponseInterface
     {
-        $psr17Factory = new Psr17Factory();
-
         $gameObj = unserialize($_SESSION["callable"]);
 
         if (isset($_POST["roll"])) {
@@ -72,7 +68,8 @@ class Dice
             ->withHeader("Location", url("/dice/update"));
     }
 
-    public function updateGameView() {
+    public function updateGameView()
+    {
         $psr17Factory = new Psr17Factory();
 
         $gameObj = unserialize($_SESSION["callable"]);

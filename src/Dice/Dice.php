@@ -20,7 +20,8 @@ class Dice
     /**
      * Sets dice to be of specified value.
      */
-    public function setDiceValue($val) {
+    public function setDiceValue($val): void
+    {
         $this->rollResult = $val;
     }
 

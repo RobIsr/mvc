@@ -32,7 +32,7 @@ class YatzyGame
         $this->currentRound = new Round($this::THROW_LIMIT);
     }
 
-    public function saveRound($target): void 
+    public function saveRound($target): void
     {
         if ($this->targets[$target] === "") {
             $this->targets[$target] = $this->currentRound->getRoundResult($target);

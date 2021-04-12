@@ -15,7 +15,6 @@ class Game
 {
 
     private $diceHand;
-    private $dices;
     private int $sum = 0;
     private ?string $result = null;
 
@@ -25,7 +24,6 @@ class Game
      */
     public function playGame($dices): void
     {
-        $this->$dices = $dices;
         $this->diceHand = new DiceHand($dices);
         $this->diceHand->roll();
         $this->sum += $this->diceHand->sum();

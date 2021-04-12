@@ -59,14 +59,14 @@ $sum = $sum;
     </div>
 <?php endif; ?>
 
-<?php if(!$end && !$endGame) : ?>
+<?php if (!$end && !$endGame) : ?>
     <!-- New roll button -->
     <form method="POST" action="<?= url("/yatzy/controls") ?>">
         <input type="submit" value="Roll" name="roll">
     </form>
 <?php endif ?>
 
-<?php if($end) : ?>
+<?php if ($end) : ?>
     <!-- Save and continue button -->
     <form method="POST" action="<?= url("/yatzy/controls") ?>">
         <select name="save_position" id="save_result">
