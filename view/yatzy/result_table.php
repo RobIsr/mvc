@@ -17,6 +17,6 @@
 </tr>
 <tr>
     <td>Total:</td>
-    <td><?= $sum ?? "" ?></td>
+    <td><?= $sum + $bonus ?? "" ?></td>
 </tr>
 </table>
