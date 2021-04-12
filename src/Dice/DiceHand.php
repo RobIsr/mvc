@@ -34,11 +34,30 @@ class DiceHand
      */
     public function roll(): void
     {
-        $diceCount = count($this->dices);
-        for ($i = 0; $i < $diceCount; $i++) {
-            $this->dices[$i]->roll();
-            $this->values[$i] = $this->dices[$i]->getLastRoll();
+        $this->values = [];
+        foreach($this->dices as $dice) {
+            $dice->roll();
+            array_push($this->values, $dice->getLastRoll());
         }
+    }
+
+
+    /**
+     * Removes the selected dices and their values from this DiceHand.
+     * @return void
+     */
+    public function spliceDice($index): void
+    {
+        array_splice($this->values, $index, 1);
+        array_splice($this->dices, $index, 1);
+    }
+
+    public function addDice($value): void
+    {
+        $newDice = new GraphicalDice();
+        $newDice->setDiceValue($value);
+        array_push($this->dices, $newDice);
+        array_push($this->values, $value);
     }
 
     /**
@@ -68,6 +87,10 @@ class DiceHand
         return array_sum($this->values) / count($this->values);
     }
 
+    /**
+     * Getter for the dices held by this DiceHand
+     * @return array 
+     */
     public function getDices(): array
     {
         return $this->dices;

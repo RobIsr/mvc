@@ -1,0 +1,119 @@
+
+FILE: ...obertisraelsson/dbwebb-kurser/mvc/me/game/view/layout/yatzy/yatzy_play.php
+--------------------------------------------------------------------------------
+FOUND 2 ERRORS AFFECTING 2 LINES
+--------------------------------------------------------------------------------
+ 62 | ERROR | [x] Expected 1 space(s) after IF keyword; 0 found
+ 69 | ERROR | [x] Expected 1 space(s) after IF keyword; 0 found
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Yatzy/Round.php
+--------------------------------------------------------------------------------
+FOUND 10 ERRORS AFFECTING 10 LINES
+--------------------------------------------------------------------------------
+ 16 | ERROR | [x] TRUE, FALSE and NULL must be lowercase; expected "false" but
+    |       |     found "FALSE"
+ 17 | ERROR | [x] TRUE, FALSE and NULL must be lowercase; expected "false" but
+    |       |     found "FALSE"
+ 30 | ERROR | [x] TRUE, FALSE and NULL must be lowercase; expected "false" but
+    |       |     found "FALSE"
+ 33 | ERROR | [x] Expected 1 space(s) after IF keyword; 0 found
+ 34 | ERROR | [x] TRUE, FALSE and NULL must be lowercase; expected "true" but
+    |       |     found "TRUE"
+ 47 | ERROR | [x] Whitespace found at end of line
+ 48 | ERROR | [x] TRUE, FALSE and NULL must be lowercase; expected "true" but
+    |       |     found "TRUE"
+ 55 | ERROR | [x] TRUE, FALSE and NULL must be lowercase; expected "true" but
+    |       |     found "TRUE"
+ 76 | ERROR | [x] Expected 1 space(s) after FOREACH keyword; 0 found
+ 83 | ERROR | [x] Expected 1 newline at end of file; 0 found
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 10 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyGame.php
+-------------------------------------------------------------------------------
+FOUND 2 ERRORS AFFECTING 2 LINES
+-------------------------------------------------------------------------------
+ 35 | ERROR | [x] Whitespace found at end of line
+ 64 | ERROR | [x] Expected 1 newline at end of file; 0 found
+-------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-------------------------------------------------------------------------------
+
+
+FILE: ...sers/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Yatzy/GameInteface.php
+--------------------------------------------------------------------------------
+FOUND 3 ERRORS AFFECTING 3 LINES
+--------------------------------------------------------------------------------
+  6 | ERROR | [ ] Interface name "gameInterface" is not in PascalCase format
+  8 | ERROR | [ ] Method name "gameInterface::init_game" is not in camel caps
+    |       |     format
+ 11 | ERROR | [x] Expected 1 newline at end of file; 0 found
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/DiceHand.php
+-----------------------------------------------------------------------------
+FOUND 2 ERRORS AFFECTING 2 LINES
+-----------------------------------------------------------------------------
+ 38 | ERROR | [x] Expected 1 space(s) after FOREACH keyword; 0 found
+ 92 | ERROR | [x] Whitespace found at end of line
+-----------------------------------------------------------------------------
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-----------------------------------------------------------------------------
+
+
+FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/Dice.php
+-------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+-------------------------------------------------------------------------
+ 23 | ERROR | [x] Opening brace should be on a new line
+-------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-------------------------------------------------------------------------
+
+
+FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/Dice.php
+-------------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+-------------------------------------------------------------------------------
+ 75 | ERROR | [x] Opening brace should be on a new line
+-------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-------------------------------------------------------------------------------
+
+
+FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/Yatzy.php
+--------------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+--------------------------------------------------------------------------------
+ 37 | ERROR | [x] Opening brace should be on a new line
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+
+FILE: ...bertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/YatzyPostTrait.php
+--------------------------------------------------------------------------------
+FOUND 7 ERRORS AFFECTING 7 LINES
+--------------------------------------------------------------------------------
+  10 | ERROR | [x] Header blocks must not contain blank lines
+  13 | ERROR | [x] Header blocks must be separated by a single blank line
+  81 | ERROR | [x] Whitespace found at end of line
+  82 | ERROR | [x] Whitespace found at end of line
+  83 | ERROR | [x] Expected 1 space(s) after FOREACH keyword; 0 found
+  91 | ERROR | [x] Whitespace found at end of line
+ 100 | ERROR | [x] Expected 1 newline at end of file; 0 found
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+Time: 322ms; Memory: 6MB
+

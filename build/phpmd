@@ -1,1 +1,9 @@
-/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Router/Router.php:23	The method dispatch() has a Cyclomatic Complexity of 24. The configured cyclomatic complexity threshold is 10.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/Debug.php:24	Avoid using static access to class '\Nyholm\Psr7\Stream' in method '__invoke'.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/Dice.php:45	Avoid unused local variables such as '$psr17Factory'.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/Dice.php:58	Avoid unused local variables such as '$psr17Factory'.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/YatzyPostTrait.php:51	Avoid unused local variables such as '$psr17Factory'.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Controller/YatzyPostTrait.php:88	The method controls uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/Game.php:18	Avoid unused private fields such as '$dices'.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Yatzy/GameInteface.php:6	The class gameInterface is not named in CamelCase.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Yatzy/GameInteface.php:8	The method init_game is not named in camelCase.
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Yatzy/Round.php:15	Avoid unused private fields such as '$roundResult'.

@@ -10,13 +10,12 @@ require __DIR__ . "/../header.php";
 
 $header = $header ?? null;
 $message = $message ?? null;
-$dices = $dices ?? null;
 ?><h1><?= $header ?></h1>
 <p><?= $message ?></p>
 
 
 
 <?php
-    require __DIR__ . "/../dice/init.php";
+   require __DIR__ . "/../dice/init.php";
 ?>
 

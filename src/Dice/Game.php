@@ -15,6 +15,7 @@ class Game
 {
 
     private $diceHand;
+    private $dices;
     private int $sum = 0;
     private ?string $result = null;
 
@@ -24,10 +25,11 @@ class Game
      */
     public function playGame($dices): void
     {
-        $this->diceHand = new DiceHand(intval($dices));
+        $this->$dices = $dices;
+        $this->diceHand = new DiceHand($dices);
         $this->diceHand->roll();
         $this->sum += $this->diceHand->sum();
-        $_SESSION["callable"] = $_SESSION["callable"];
+        $_SESSION["callable"] = serialize($this);
     }
 
     /**
@@ -45,7 +47,7 @@ class Game
             $this->result = "You win!";
             $this->saveRound("player");
         }
-        $_SESSION["callable"] = $_SESSION["callable"];
+        $_SESSION["callable"] = serialize($this);
         redirectTo(url("/dice/play"));
     }
 
@@ -53,25 +55,28 @@ class Game
      * Make computer dice rolls and generate a result.
      * @return void
      */
-    public function stop($dices): void
+    public function stop(): void
     {
-        $computerHand = new DiceHand($dices);
+        $computerHand = new DiceHand(count($this->getDices()));
         $computerSum = 0;
+
         while ($computerSum < 15) {
             $computerHand->roll();
             $computerSum += $computerHand->sum();
         }
-        if ($computerSum >= $this->sum) {
+
+        if ($computerSum >= $this->sum && $computerSum <= 21) {
             $this->result = "You lost! Computers score was: " . $computerSum;
             $this->saveRound("computer");
             redirectTo(url("/dice/play"));
+            $_SESSION["callable"] = serialize($this);
             return;
         }
 
         $this->result = "You win! Computers score was: " . $computerSum;
         $this->saveRound("player");
+        $_SESSION["callable"] = serialize($this);
         redirectTo(url("/dice/play"));
-        return;
     }
 
     /**
@@ -123,7 +128,6 @@ class Game
         if (isset($_SESSION["computer"])) {
             unset($_SESSION["computer"]);
         }
-        redirectTo(url("/dice/play"));
     }
 
     /**
