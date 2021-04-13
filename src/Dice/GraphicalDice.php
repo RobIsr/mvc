@@ -19,7 +19,7 @@ class GraphicalDice extends Dice
     }
 
     /**
-     * Function to pront a graphical representation of the dice.
+     * Function to print a graphical representation of the dice.
      */
     public function graphic(): string
     {

@@ -52,6 +52,9 @@ class DiceHand
         array_splice($this->dices, $index, 1);
     }
 
+    /**
+     * Adds dice with specified value to the DiceHand.
+     */
     public function addDice($value): void
     {
         $newDice = new GraphicalDice();
@@ -76,15 +79,6 @@ class DiceHand
     public function sum(): int
     {
         return array_sum($this->values);
-    }
-
-    /**
-     * Calculates the average of all dice values from last roll.
-     * @return float - The average of all dice values from last roll.
-     */
-    public function average(): float
-    {
-        return array_sum($this->values) / count($this->values);
     }
 
     /**

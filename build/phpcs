@@ -1,0 +1,33 @@
+
+FILE: ...raelsson/dbwebb-kurser/mvc/me/game/test/Models/GraphicalDiceObjectTest.php
+--------------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+--------------------------------------------------------------------------------
+ 35 | ERROR | [x] Expected 1 newline at end of file; 0 found
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+
+FILE: ...ertisraelsson/dbwebb-kurser/mvc/me/game/test/Models/DiceHandObjectTest.php
+--------------------------------------------------------------------------------
+FOUND 2 ERRORS AFFECTING 1 LINE
+--------------------------------------------------------------------------------
+ 31 | ERROR | [x] Space found before comma in argument list
+ 31 | ERROR | [x] No space found after comma in argument list
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/robertisraelsson/dbwebb-kurser/mvc/me/game/config/bootstrap.php
+----------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+----------------------------------------------------------------------------
+ 17 | ERROR | [x] Expected 1 newline at end of file; 0 found
+----------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------------
+
+Time: 812ms; Memory: 8MB
+

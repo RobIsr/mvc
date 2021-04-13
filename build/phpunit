@@ -1,0 +1,23 @@
+PHPUnit 9.5.4 by Sebastian Bergmann and contributors.
+
+.....E.......                                                     13 / 13 (100%)
+
+Time: 00:00.229, Memory: 14.00 MB
+
+There was 1 error:
+
+1) Rois\Dice\DiceGameObjectTest::testNewRoll
+Undefined index: REQUEST_SCHEME
+
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/functions.php:167
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/functions.php:146
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/functions.php:124
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/src/Dice/Game.php:49
+/Users/robertisraelsson/dbwebb-kurser/mvc/me/game/test/Models/DiceGameObjectTest.php:45
+
+ERRORS!
+Tests: 13, Assertions: 23, Errors: 1.
+
+Generating code coverage report in Clover XML format ... done [00:00.181]
+
+Generating code coverage report in HTML format ... done [00:00.139]
