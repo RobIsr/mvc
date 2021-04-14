@@ -36,6 +36,7 @@ class DiceGameObjectTest extends TestCase
 
     /**
      * Test that a new roll can be made and that values change.
+     * @runInSeparateProcess
      */
     public function testNewRoll()
     {
@@ -44,6 +45,61 @@ class DiceGameObjectTest extends TestCase
         $firstValues = $game->getValues();
         $game->newRoll();
         $secondValues = $game->getValues();
-        $this->assertNotEqual($firstValues, $secondValues);
+        $this->assertNotEquals($firstValues, $secondValues);
+    }
+
+    /**
+     * Test that a new roll with with ending values produces
+     * a result.
+     */
+    public function testNewRollSetsResult()
+    {
+        $game = new Game();
+        $game->playGame(2);
+        $game->newRoll(21);
+        $result = $game->getResult();
+        $this->assertEquals("You win!", $result);
+        $game->newRoll(22);
+        $result = $game->getResult();
+        $this->assertEquals("You Lost!", $result);
+    }
+
+    /**
+     * Test that the stop function produces correct results when
+     * provided with ending values.
+     */
+    public function testStopSetsResult()
+    {
+        $game = new Game();
+        $game->playGame(2);
+        $game->stop(20, 15);
+        $result = $game->getResult();
+        $this->assertEquals("You win! Computers score was: 15", $result);
+        $game->stop(15, 20);
+        $result = $game->getResult();
+        $this->assertEquals("You lost! Computers score was: 20", $result);
+    }
+
+    /**
+     * Test that correct sum is produced.
+     */
+    public function testGetSum() {
+        $game = new Game();
+        $game->playGame(2);
+        $values = $game->getValues();
+        $calcSum = array_sum($values);
+        $gameSum = $game->getSum();
+        $this->assertEquals($calcSum, $gameSum);
+    }
+
+    /**
+     * Test that $_SESSION is called and that rounds are reset.
+     */
+    public function testResetRound() {
+        $_SESSION["player"] = 2;
+        $_SESSION["computer"] = 3;
+        $game = new Game(2);
+        $game->resetRounds();
+        $this->assertEmpty($_SESSION);
     }
 }

@@ -27,33 +27,33 @@ class Game
         $this->diceHand = new DiceHand($dices);
         $this->diceHand->roll();
         $this->sum += $this->diceHand->sum();
-        $_SESSION["callable"] = serialize($this);
     }
 
     /**
      * Makes a new roll of the dices.
      * @return void
      */
-    public function newRoll(): void
+    public function newRoll($testSum = null): void
     {
+        
         $this->diceHand->roll();
-        $this->sum += $this->diceHand->sum();
+        $this->sum = $testSum ? $testSum : $this->sum + $this->diceHand->sum();
         if ($this->sum > 21) {
-            $this->result = "You lost!";
+            $this->result = "You Lost!";
             $this->saveRound("computer");
         } elseif ($this->sum === 21) {
             $this->result = "You win!";
             $this->saveRound("player");
         }
-        $_SESSION["callable"] = serialize($this);
-        redirectTo(url("/dice/play"));
     }
 
     /**
      * Make computer dice rolls and generate a result.
+     * @var testPlayerScore Score for player for test purposes only.
+     * @var testComputerScore Score for computer for test purposes only.
      * @return void
      */
-    public function stop(): void
+    public function stop($testPlayerScore = null, $testComputerScore = null): void
     {
         $computerHand = new DiceHand(count($this->getDices()));
         $computerSum = 0;
@@ -63,18 +63,20 @@ class Game
             $computerSum += $computerHand->sum();
         }
 
+        if ($testPlayerScore && $testComputerScore) {
+            $this->sum = $testPlayerScore;
+            $computerSum = $testComputerScore;
+        }
+
         if ($computerSum >= $this->sum && $computerSum <= 21) {
             $this->result = "You lost! Computers score was: " . $computerSum;
             $this->saveRound("computer");
-            redirectTo(url("/dice/play"));
-            $_SESSION["callable"] = serialize($this);
             return;
         }
 
         $this->result = "You win! Computers score was: " . $computerSum;
         $this->saveRound("player");
-        $_SESSION["callable"] = serialize($this);
-        redirectTo(url("/dice/play"));
+        
     }
 
     /**

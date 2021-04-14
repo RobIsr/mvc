@@ -46,6 +46,8 @@ class Dice
 
         $gameObj->playGame(intval($_POST["dices"]));
 
+        $_SESSION["callable"] = serialize($gameObj);
+
         return (new Response())
             ->withStatus(301)
             ->withHeader("Location", url("/dice/update"));
@@ -62,6 +64,7 @@ class Dice
         } elseif (isset($_POST["reset"])) {
             $gameObj->resetRounds();
         }
+        $_SESSION["callable"] = serialize($gameObj);
 
         return (new Response())
             ->withStatus(301)
