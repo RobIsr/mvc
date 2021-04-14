@@ -79,4 +79,9 @@ class Round
         }
         return $sum;
     }
+
+    public function getThrowCount(): int
+    {
+        return $this->throwCount;
+    }
 }

@@ -32,12 +32,12 @@ class YatzyGame
         $this->currentRound = new Round($this::THROW_LIMIT);
     }
 
-    public function saveRound($target): void
+    public function saveRound($target, $test = false): void
     {
         if ($this->targets[$target] === "") {
             $this->targets[$target] = $this->currentRound->getRoundResult($target);
         }
-        if ($this->roundCount === 6) {
+        if ($test || $this->roundCount === 6) {
             $this->endGame = true;
         }
     }
@@ -50,6 +50,11 @@ class YatzyGame
     public function getCurrentRound(): Round
     {
         return $this->currentRound;
+    }
+
+    public function getRoundCount(): int
+    {
+        return $this->roundCount;
     }
 
     public function getTotalScore(): int
