@@ -71,7 +71,7 @@ class Dice
             ->withHeader("Location", url("/dice/update"));
     }
 
-    public function updateGameView()
+    public function updateGameView(): ResponseInterface
     {
         $psr17Factory = new Psr17Factory();
 

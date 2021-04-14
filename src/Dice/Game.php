@@ -17,6 +17,7 @@ class Game
     private $diceHand;
     private int $sum = 0;
     private ?string $result = null;
+    private int $rollCount = 0;
 
     /**
      * Generates a new dicehand and makes the first roll.
@@ -27,6 +28,7 @@ class Game
         $this->diceHand = new DiceHand($dices);
         $this->diceHand->roll();
         $this->sum += $this->diceHand->sum();
+        $this->rollCount += 1;
     }
 
     /**
@@ -45,6 +47,7 @@ class Game
             $this->result = "You win!";
             $this->saveRound("player");
         }
+        $this->rollCount += 1;
     }
 
     /**
@@ -76,7 +79,6 @@ class Game
 
         $this->result = "You win! Computers score was: " . $computerSum;
         $this->saveRound("player");
-        
     }
 
     /**
@@ -134,7 +136,7 @@ class Game
      * Saves the result of the played round to the session.
      * @return void
      */
-    private function saveRound(string $winner): void
+    public function saveRound(string $winner): void
     {
         if (isset($_SESSION[$winner])) {
             $_SESSION[$winner] = $_SESSION[$winner] + 1;
@@ -142,5 +144,21 @@ class Game
         }
         $_SESSION[$winner] = 1;
         return;
+    }
+
+    /**
+     * Getter for current DiceHand.
+     */
+    public function getDiceHand() 
+    {
+        return $this->diceHand;
+    }
+
+    /**
+     * Getter for rollCount.
+     */
+    public function getRollCount() 
+    {
+        return $this->rollCount;
     }
 }

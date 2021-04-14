@@ -34,6 +34,14 @@ class DiceGameObjectTest extends TestCase
         $this->assertCount(2, $values);
     }
 
+    public function testGetDiceHand()
+    {
+        $game = new Game();
+        $game->playGame(2);
+        $diceHand = $game->getDiceHand();
+        $this->assertInstanceOf("\Rois\Dice\DiceHand", $diceHand);
+    }
+
     /**
      * Test that a new roll can be made and that values change.
      * @runInSeparateProcess
@@ -96,6 +104,7 @@ class DiceGameObjectTest extends TestCase
      * Test that $_SESSION is called and that rounds are reset.
      */
     public function testResetRound() {
+        $_SESSION = [];
         $_SESSION["player"] = 2;
         $_SESSION["computer"] = 3;
         $game = new Game(2);
