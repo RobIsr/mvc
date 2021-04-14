@@ -38,13 +38,44 @@ class YatzyRoundObjectTest extends TestCase
         $this->assertTrue($end);
     }
 
-    public function checkStoreDices()
+    public function testStoreDices()
     {
         $round = new Round(3);
-        $valueToSave = $round->getDiceHand()->values()[1];
         $round->roll();
+        $valueToStore = $round->getDiceHand()->values()[1];
         $round->storeDices(1);
+        $storedDices = $round->getStoredDices();
+        $this->assertCount(1, $storedDices);
+        $this->assertEquals($valueToStore, $storedDices[0]);
+        $saved = $round->checkSaved();
+        $this->assertTrue($saved);
+    }
+
+    public function testRemoveDices()
+    {
+        $round = new Round(3);
+        $round->roll();
+
+        $round->storeDices(1);
+
         $diceHandValues = $round->getDiceHand()->values();
-        $this->assertContains($valueToSave, $diceHandValues);
+        $storedDices = $round->getStoredDices();
+        $this->assertCount(1, $storedDices);
+
+        $round->removeDices(0);
+        $diceHandValues = $round->getDiceHand()->values();
+        $storedDices = $round->getStoredDices();
+        $this->assertCount(5, $diceHandValues);
+        $this->assertCount(0, $storedDices);
+    }
+
+    public function testGetRoundResult()
+    {
+        $round = new Round(3);
+        $round->roll();
+        $valueToStore = $round->getDiceHand()->values()[0];
+        $round->storeDices(0);
+        $result = $round->getRoundResult($valueToStore);
+        $this->assertEquals($valueToStore, $result);
     }
 }
