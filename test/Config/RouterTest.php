@@ -28,8 +28,7 @@ class RouterTest extends TestCase
      */
     public function testRouterInstance()
     {
-        $exp = 1;
-        $res = require $this->routerFile;
+        $router = $router ?? null;
         $this->assertInstanceOf("FastRoute\RouteCollector", $router);
     }
 }
