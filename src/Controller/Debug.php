@@ -18,7 +18,6 @@ class Debug
     public function __invoke(): ResponseInterface
     {
         $body = renderView("layout/debug.php");
-
         return (new Response())
             ->withStatus(200)
             ->withBody(Stream::create($body));

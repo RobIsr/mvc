@@ -39,7 +39,7 @@ class YatzyGameObjectTest extends TestCase
     public function testNewRound()
     {
         $game = new YatzyGame();
-        $newRound = $game->newRound();
+        $game->newRound();
         $currentRound = $game->getCurrentRound();
         $this->assertInstanceOf("\Rois\Yatzy\Round", $currentRound);
         $roundCount = $game->getRoundCount();
@@ -63,7 +63,6 @@ class YatzyGameObjectTest extends TestCase
         $game->saveRound($valueToSave);
         $totalScore = $game->getTotalScore();
         $this->assertEquals($valueToSave, $totalScore);
-
     }
 
     /**

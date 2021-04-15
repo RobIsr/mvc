@@ -91,7 +91,8 @@ class DiceGameObjectTest extends TestCase
     /**
      * Test that correct sum is produced.
      */
-    public function testGetSum() {
+    public function testGetSum()
+    {
         $game = new Game();
         $game->playGame(2);
         $values = $game->getValues();
@@ -103,7 +104,8 @@ class DiceGameObjectTest extends TestCase
     /**
      * Test that $_SESSION is called and that rounds are reset.
      */
-    public function testResetRound() {
+    public function testResetRound()
+    {
         $_SESSION = [];
         $_SESSION["player"] = 2;
         $_SESSION["computer"] = 3;

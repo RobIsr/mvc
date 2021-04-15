@@ -13,7 +13,8 @@ use Psr\Http\Message\ResponseInterface;
  */
 class ControllerDiceTest extends TestCase
 {
-    private function setupGameInSession() {
+    private function setupGameInSession()
+    {
         $game = new Game();
         $game->playGame(2);
         $_SESSION["callable"] = serialize($game);
@@ -46,7 +47,7 @@ class ControllerDiceTest extends TestCase
     public function testControllerInitsGameInSession()
     {
         $controller = new Dice();
-        $responseInterFace = $controller->index();
+        $controller->index();
         $this->assertArrayHasKey("callable", $_SESSION);
         $_SESSION = [];
     }
@@ -139,15 +140,10 @@ class ControllerDiceTest extends TestCase
      * @runInSeparateProcess
      */
     public function testUpdateGameView()
-    {       
+    {
         $game = new Game();
         $game->playGame(2);
         $_SESSION["callable"] = serialize($game);
-        $data = [
-            "header" => "Dice page",
-            "message" => "Hello, this is the dice page.",
-            "gameObj" => serialize($game)
-        ];
         $controller = new Dice();
         $response = $controller->updateGameView();
         $exp = "\Psr\Http\Message\ResponseInterface";

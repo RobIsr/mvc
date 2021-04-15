@@ -37,7 +37,6 @@ class Game
      */
     public function newRoll($testSum = null): void
     {
-        
         $this->diceHand->roll();
         $this->sum = $testSum ? $testSum : $this->sum + $this->diceHand->sum();
         if ($this->sum > 21) {
@@ -52,8 +51,8 @@ class Game
 
     /**
      * Make computer dice rolls and generate a result.
-     * @var testPlayerScore Score for player for test purposes only.
-     * @var testComputerScore Score for computer for test purposes only.
+     * $testPlayerScore Score for player for test purposes only.
+     * $testComputerScore Score for computer for test purposes only.
      * @return void
      */
     public function stop($testPlayerScore = null, $testComputerScore = null): void
@@ -149,7 +148,7 @@ class Game
     /**
      * Getter for current DiceHand.
      */
-    public function getDiceHand() 
+    public function getDiceHand()
     {
         return $this->diceHand;
     }
@@ -157,7 +156,7 @@ class Game
     /**
      * Getter for rollCount.
      */
-    public function getRollCount() 
+    public function getRollCount()
     {
         return $this->rollCount;
     }

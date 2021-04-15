@@ -20,6 +20,9 @@ class YatzyRoundObjectTest extends TestCase
         $this->assertInstanceOf("\Rois\Yatzy\Round", $round);
     }
 
+    /**
+     * Test that roll funtion of the Round object produces a new DiceHand object.
+     */
     public function testRollAndGetDiceHand()
     {
         $round = new Round(3);
@@ -28,6 +31,9 @@ class YatzyRoundObjectTest extends TestCase
         $this->assertInstanceOf("\Rois\Dice\DiceHand", $diceHand);
     }
 
+    /**
+     * Test that Round is ended when 3 throws are made.
+     */
     public function testRollLimitEndsRound()
     {
         $round = new Round(3);
@@ -38,6 +44,9 @@ class YatzyRoundObjectTest extends TestCase
         $this->assertTrue($end);
     }
 
+    /**
+     * Test that dices can be stored in the roundObject.
+     */
     public function testStoreDices()
     {
         $round = new Round(3);
@@ -51,6 +60,9 @@ class YatzyRoundObjectTest extends TestCase
         $this->assertTrue($saved);
     }
 
+    /**
+     * Test that stored dices can be removed and restored to the DiceHand.
+     */
     public function testRemoveDices()
     {
         $round = new Round(3);
@@ -69,6 +81,10 @@ class YatzyRoundObjectTest extends TestCase
         $this->assertCount(0, $storedDices);
     }
 
+    /**
+     * Test that the result of the round is equal to the sum of stored
+     * dices that matches the target number 3.
+     */
     public function testGetRoundResult()
     {
         $round = new Round(3);

@@ -31,14 +31,9 @@ class ControllerYatzyGameTest extends TestCase
      */
     public function testControllerReturnsResponse()
     {
-        $data = [
-            "header" => "Yatzy page",
-            "message" => "This is the yatzy page",
-        ];
         $controller = new Yatzy();
         $exp = "\Psr\Http\Message\ResponseInterface";
         $res = $controller();
-        $responseBody = $res->getBody()->__toString();
         $this->assertInstanceOf($exp, $res);
         $this->assertEquals(200, $res->getStatusCode());
     }
@@ -136,7 +131,6 @@ class ControllerYatzyGameTest extends TestCase
         $this->assertEquals(1, $throwCount);
         $_SESSION = [];
         $_POST = [];
-
     }
 
     /**
@@ -184,21 +178,12 @@ class ControllerYatzyGameTest extends TestCase
         $_POST = [];
     }
 
+    /**
+     * Test that controllers functions for adding and removing stored dices
+     * updates the gameobject accordingly.
+     */
     public function testAddRemoveDices()
     {
-        $addRemove = [
-            "add-0" => 0,
-            "add-1" => 1,
-            "add-2" => 2,
-            "add-3" => 3,
-            "add-4" => 4,
-            "rem-0" => 0,
-            "rem-1" => 1,
-            "rem-2" => 2,
-            "rem-3" => 3,
-            "rem-4" => 4
-        ];
-
         $_POST = [];
         $gameObj = new YatzyGame();
         $gameObj->initGame();
@@ -206,6 +191,11 @@ class ControllerYatzyGameTest extends TestCase
         $_SESSION["callable"] = serialize($gameObj);
 
         $controller = new Yatzy();
+
+        /**
+         * Add all dices in turn to storedDices and check that storedDices count
+         * increases.
+        */
         for ($i = 0; $i < 5; $i++) {
             $gameObj = unserialize($_SESSION["callable"]);
             $prevDices = $gameObj->getCurrentRound()->getStoredDices();
@@ -219,6 +209,10 @@ class ControllerYatzyGameTest extends TestCase
             $_POST = [];
         }
 
+        /**
+         * Remove all dices in turn from storedDices and check that storedDices count
+         * decreases.
+        */
         for ($i = 0; $i < 5; $i++) {
             $gameObj = unserialize($_SESSION["callable"]);
             $prevDices = $gameObj->getCurrentRound()->getStoredDices();

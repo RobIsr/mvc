@@ -28,9 +28,8 @@ class DiceHandObjectTest extends TestCase
         $dices = $diceHand->getDices();
         $this->assertCount(5, $dices);
         $this->isInstanceOf("\Rois\Dice\DiceHand", $diceHand);
-        $this->assertInstanceOf("\Rois\Dice\GraphicalDice" ,$dices[0]);
+        $this->assertInstanceOf("\Rois\Dice\GraphicalDice", $dices[0]);
     }
-
 
     /**
      * Test that roll function produces 5 dice values and that they can
