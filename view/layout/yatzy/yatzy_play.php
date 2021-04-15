@@ -34,7 +34,7 @@ $bonus = $bonus;
     <!-- Display dices saved by the user -->
     <div class="dices">
     <?php if (count($savedValues) > 0) : ?>
-        <form id="dices" action="<?= url("/yatzy/controls") ?>" method="post">
+        <form id="saved-dices" action="<?= url("/yatzy/controls") ?>" method="post">
             <?php foreach ($savedValues as $index => $value) : ?>
                 <div class="dice-div">
                     <input class="dice-sprite dice-<?= $value ?>" type="submit" value="" name="<?= "rem-" . $index ?>">
