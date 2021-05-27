@@ -1,5 +1,5 @@
 BIN        := .bin
-VENDORBIN  := vendor/bin
+VENDORBIN  := vendor/
 PHPLOC     := $(BIN)/phploc
 PHPCS      := $(BIN)/phpcs
 PHPCBF     := $(BIN)/phpcbf
